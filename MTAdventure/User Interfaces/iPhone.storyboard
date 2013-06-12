@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UZY-Jp-DqG">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="7zS-1u-eZ0">
+            <objects>
+                <viewController id="UZY-Jp-DqG" customClass="InitialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1M-kn-2iQ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKn-Gg-q0y">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="My Adventure">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bgR-FH-9VK" kind="push" id="5vP-ev-LhS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KKn-Gg-q0y" firstAttribute="top" secondItem="C1M-kn-2iQ" secondAttribute="top" constant="252" id="Oec-RA-eKH"/>
+                            <constraint firstItem="KKn-Gg-q0y" firstAttribute="centerX" secondItem="C1M-kn-2iQ" secondAttribute="centerX" type="default" id="rPz-jV-b6n"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kny-dE-eeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="-180"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Kvn-0S-50F">
+            <objects>
+                <viewController id="bgR-FH-9VK" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N62-Wz-VWa">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Details:" translatesAutoresizingMaskIntoConstraints="NO" id="eZB-Ss-w83">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="OzG-ch-UdZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwf-2f-pfB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="mWS-CR-8vI"/>
+                                    <constraint firstAttribute="width" constant="240" id="ui4-KM-jA3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="click the map to get direction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqS-We-qZy">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vwf-2f-pfB" firstAttribute="centerX" secondItem="eZB-Ss-w83" secondAttribute="centerX" type="default" id="8yC-KT-2yF"/>
+                            <constraint firstAttribute="bottom" secondItem="CqS-We-qZy" secondAttribute="bottom" constant="137" id="PEq-dl-Pa2"/>
+                            <constraint firstItem="eZB-Ss-w83" firstAttribute="trailing" secondItem="N62-Wz-VWa" secondAttribute="trailing" type="default" id="bed-UJ-yAZ"/>
+                            <constraint firstItem="vwf-2f-pfB" firstAttribute="top" secondItem="N62-Wz-VWa" secondAttribute="top" constant="242" id="gjv-r8-CG3"/>
+                            <constraint firstItem="eZB-Ss-w83" firstAttribute="top" secondItem="N62-Wz-VWa" secondAttribute="top" type="default" id="gvF-kr-eLV"/>
+                            <constraint firstItem="eZB-Ss-w83" firstAttribute="leading" secondItem="N62-Wz-VWa" secondAttribute="leading" type="default" id="h26-vm-ZqO"/>
+                            <constraint firstItem="vwf-2f-pfB" firstAttribute="centerX" secondItem="CqS-We-qZy" secondAttribute="centerX" type="default" id="x9j-wG-dh5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="L6m-85-dTQ"/>
+                    <connections>
+                        <outlet property="mapImg" destination="vwf-2f-pfB" id="chk-3g-OuE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7y-VE-zXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="-176"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapImg" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="InitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
