@@ -10,5 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *mapImg;
+@property (strong, nonatomic) NSURL *targetUrl;
+
 @end
