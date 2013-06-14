@@ -8,17 +8,38 @@
 
 #import "InitialViewController.h"
 
-@interface InitialViewController ()
-
+@interface InitialViewController () {
+}
+@property BOOL displayingFront;
 @end
 
-@implementation InitialViewController
+@implementation InitialViewController {
+    NSArray *tableData;
+}
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+//setting toggle button, displayingfront is for which screen come in the front
+    self.displayingFront = YES;
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Toggle" style:UIBarButtonItemStylePlain target:self action:@selector(toggleView:)]];
+//fliter button for right reveal button
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(rightMenu)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"Show View" forState:UIControlStateNormal];
+    button.frame = CGRectMake(120.0, 310.0, 160.0, 40.0);
+    [self.myContainerView addSubview:button];
+    
+// Create the GMSMapView with the camera position.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.774042
+                                                            longitude:-73.971001                                                                 zoom:13];
+    
+    self.myMapView.camera = camera;
+//tableview data
+    tableData = [NSArray arrayWithObjects:@"Brooklyn DT Eung's Place", @"GreenPoint Bike route", @"PS11 NFC church", @"Vision Center", @"HOHOHO", nil];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -42,6 +63,41 @@
 */
 }
 
+#pragma mark - toggle
+-(void)toggleView:(id)selector {
+    [UIView transitionWithView:self.myContainerView
+                      duration:1.0
+                       options:(self.displayingFront ? UIViewAnimationOptionTransitionFlipFromRight :
+                                UIViewAnimationOptionTransitionFlipFromLeft)
+                    animations: ^{
+                        if(self.displayingFront)
+                        {
+                            self.myTableView.hidden = true;
+                            self.myMapView.hidden = false;
+                        }
+                        else
+                        {
+                            self.myTableView.hidden = false;
+                            self.myMapView.hidden = true;
+                        }
+                    }
+     
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            self.displayingFront = !self.displayingFront;
+                        }
+                    }];
+
+}
+- (IBAction)menuBtn:(id)sender {
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+- (void)rightMenu{
+    [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+
+/*
 #pragma mark - PFLogInViewControllerDelegate
 // Sent to the delegate to determine whether the log in request should be submitted to the server.
 - (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
@@ -113,6 +169,28 @@
 // Sent to the delegate when the sign up screen is dismissed.
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
     NSLog(@"User dismissed the signUpViewController");
+}
+*/
+#pragma mark - UITableViewDelegate
+
+#pragma mark - UITableViewDatasourse
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [tableData count];
+}
+
+//Warning that I always get confused with tableView variable. It is connected to delegate and datasource that is where you can tell my tableview is this tableView variable
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    return cell;
+
 }
 
 @end

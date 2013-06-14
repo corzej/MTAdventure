@@ -1,0 +1,10 @@
+ALWAYS_SEARCH_USER_PATHS = YES
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Google-Maps-iOS-SDK"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/AdMob"
+OTHER_LDFLAGS = -ObjC -ObjC -lGoogleAdMobAds -lc++ -licucore -lsqlite3.0 -lz -framework AVFoundation -framework AudioToolbox -framework CoreData -framework CoreGraphics -framework CoreLocation -framework CoreText -framework GLKit -framework GoogleMaps -framework ImageIO -framework MessageUI -framework OpenGLES -framework QuartzCore -framework StoreKit -framework SystemConfiguration -framework iAd -weak_framework Accounts -weak_framework AdSupport -weak_framework Security -weak_framework Social
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AdMob" "${PODS_ROOT}/BuildHeaders/ECSlidingViewController" "${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK" "${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/BuildHeaders/Google-Maps-iOS-SDK" "${PODS_ROOT}/BuildHeaders/Google-Maps-iOS-SDK/GoogleMaps" "${PODS_ROOT}/BuildHeaders/LARSAdController"
+PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AdMob" "${PODS_ROOT}/Headers/ECSlidingViewController" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/Google-Maps-iOS-SDK" "${PODS_ROOT}/Headers/Google-Maps-iOS-SDK/GoogleMaps" "${PODS_ROOT}/Headers/LARSAdController"
+PODS_ROOT = ${SRCROOT}/Pods

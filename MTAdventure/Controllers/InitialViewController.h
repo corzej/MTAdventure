@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <ECSlidingViewController/ECSlidingViewController.h>
 
-@interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet GMSMapView *myMapView;
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UIView *myContainerView;
+- (IBAction)menuBtn:(id)sender;
 @end

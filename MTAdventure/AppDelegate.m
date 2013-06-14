@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
@@ -18,7 +19,8 @@
                   clientKey:@"OJLyBUwxyvL9yGJPKmSB6N4hUUL9CqbaIjqyAjd4"];
 //Set the Analytics from Parse
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+//google maps
+    [GMSServices provideAPIKey:@"AIzaSyApNVepHW5klaF66HDtoYdtX367ycTFwT0"];
     return YES;
 }
 

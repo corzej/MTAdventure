@@ -1,0 +1,30 @@
+PODS:
+  - AdMob (6.4.1)
+  - ECSlidingViewController (0.10.0)
+  - Facebook-iOS-SDK (3.5.2)
+  - Google-Maps-iOS-SDK (1.3.1)
+  - LARSAdController (3.0.2):
+    - LARSAdController/Core
+    - LARSAdController/GoogleAds
+    - LARSAdController/iAds
+  - LARSAdController/Core (3.0.2)
+  - LARSAdController/GoogleAds (3.0.2):
+    - AdMob
+    - LARSAdController/Core
+  - LARSAdController/iAds (3.0.2):
+    - LARSAdController/Core
+
+DEPENDENCIES:
+  - ECSlidingViewController
+  - Facebook-iOS-SDK
+  - Google-Maps-iOS-SDK
+  - LARSAdController
+
+SPEC CHECKSUMS:
+  AdMob: 7232a19244b55b99b67a7e7f86ba4591ba917532
+  ECSlidingViewController: fc9a9a6564d4a64c0d8c7cf5583d2b9a469ecd04
+  Facebook-iOS-SDK: 0690c15914d4e412f5f0ef0f8cce34fd0d39f7ce
+  Google-Maps-iOS-SDK: b768a1077faca50212cd9f5596423ccf844f144d
+  LARSAdController: e1315b73aa332b94a0fd21788fcdd630e7242a23
+
+COCOAPODS: 0.19.1
