@@ -14,7 +14,6 @@
 @end
 
 @implementation InitialViewController {
-    NSArray *tableData;
 }
 
 
@@ -37,8 +36,12 @@
                                                             longitude:-73.971001                                                                 zoom:13];
     
     self.myMapView.camera = camera;
-//tableview data
-    tableData = [NSArray arrayWithObjects:@"Brooklyn DT Eung's Place", @"GreenPoint Bike route", @"PS11 NFC church", @"Vision Center", @"HOHOHO", nil];
+    self.myMapView.settings.myLocationButton = YES;
+
+    
+// load data chunck from parse may take time need to fix later
+
+    [self getFromParse];
 
 }
 
@@ -62,7 +65,25 @@
     }
 */
 }
+#pragma mark - parse methods
 
+- (void) getFromParse {
+    //data from parse
+    [SVProgressHUD showWithStatus:@"Downloading" maskType:SVProgressHUDMaskTypeBlack];
+    PFQuery *query = [PFQuery queryWithClassName:@"Adventure"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"loging: %@",objects);
+            dataChunk = [[NSArray alloc] initWithArray:objects];
+            [SVProgressHUD dismiss];
+            [self.myTableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
 #pragma mark - toggle
 -(void)toggleView:(id)selector {
     [UIView transitionWithView:self.myContainerView
@@ -175,7 +196,7 @@
 
 #pragma mark - UITableViewDatasourse
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableData count];
+    return [dataChunk count];
 }
 
 //Warning that I always get confused with tableView variable. It is connected to delegate and datasource that is where you can tell my tableview is this tableView variable
@@ -187,8 +208,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+//try to convert parse object to piece of row
+    PFObject *tempObject = [dataChunk objectAtIndex:indexPath.row];
+    NSLog(@"tempObjcet: %@",tempObject);
+    cell.textLabel.text = [tempObject objectForKey:@"title"];
     return cell;
 
 }

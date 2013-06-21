@@ -28,3 +28,4 @@ install_resource()
 install_resource 'Facebook-iOS-SDK/src/FacebookSDKResources.bundle'
 install_resource 'Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle'
 install_resource 'Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle'
+install_resource 'SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle'

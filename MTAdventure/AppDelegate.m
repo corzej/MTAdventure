@@ -14,6 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+// In the app delegate we create a constant string to be used as an event name
+    
 //Set the Parse Tokens
     [Parse setApplicationId:@"IPfqwurj5WNy5EJriFDaWUyqjMxuHRkI3hLFB9om"
                   clientKey:@"OJLyBUwxyvL9yGJPKmSB6N4hUUL9CqbaIjqyAjd4"];
