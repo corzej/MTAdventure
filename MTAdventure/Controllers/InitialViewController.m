@@ -27,8 +27,8 @@
     [button addTarget:self
                action:@selector(rightMenu)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"Show View" forState:UIControlStateNormal];
-    button.frame = CGRectMake(120.0, 310.0, 160.0, 40.0);
+    [button setTitle:@"F" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0.0, 420.0, 40.0, 40.0);
     [self.myContainerView addSubview:button];
     
 // Create the GMSMapView with the camera position.
@@ -37,6 +37,8 @@
     
     self.myMapView.camera = camera;
     self.myMapView.settings.myLocationButton = YES;
+    self.myMapView.settings.compassButton = YES;
+
 
     
 // load data chunck from parse may take time need to fix later
@@ -73,7 +75,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Adventure"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"loging: %@",objects);
+          //  NSLog(@"loging: %@",objects);
             dataChunk = [[NSArray alloc] initWithArray:objects];
             [SVProgressHUD dismiss];
             [self.myTableView reloadData];
@@ -95,6 +97,7 @@
                         {
                             self.myTableView.hidden = true;
                             self.myMapView.hidden = false;
+                            [self showMap];
                         }
                         else
                         {
@@ -114,7 +117,10 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 - (void)rightMenu{
-    [self.slidingViewController anchorTopViewTo:ECLeft];
+    //todo thispart
+    MenuRightViewController *myNewVC = [[MenuRightViewController alloc] init];
+    [self presentViewController:myNewVC animated:YES completion:NULL];
+
 }
 
 
@@ -193,6 +199,9 @@
 }
 */
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"toDetail" sender:[self.myTableView cellForRowAtIndexPath:indexPath]];
+}
 
 #pragma mark - UITableViewDatasourse
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -210,10 +219,42 @@
     }
 //try to convert parse object to piece of row
     PFObject *tempObject = [dataChunk objectAtIndex:indexPath.row];
-    NSLog(@"tempObjcet: %@",tempObject);
     cell.textLabel.text = [tempObject objectForKey:@"title"];
     return cell;
 
 }
 
+#pragma mark - GMSMapViewDelegate
+
+
+#pragma mark - MapDetails
+- (void) showMap {
+ //   NSLog(@"1111111: %@",dataChunk);
+    for (id ele in dataChunk) {
+      //  NSLog(@"tempObjcet: %@",dataChunk);
+        
+        double tempLat = [[ele objectForKey:@"latitude"] doubleValue];
+        double tempLong = [[ele objectForKey:@"longitude"] doubleValue];
+        
+        CLLocationCoordinate2D position = CLLocationCoordinate2DMake(tempLat, tempLong);
+        GMSMarker *marker = [GMSMarker markerWithPosition:position];
+        marker.title = [ele objectForKey:@"title"];
+        marker.map = self.myMapView;
+    }
+}
+
+#pragma mark - preapre segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"toDetail"])
+    {
+        NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
+        // Get reference to the destination view controller
+        DetailViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setDataFromParse:[dataChunk objectAtIndex:indexPath.row]];
+    }
+}
 @end

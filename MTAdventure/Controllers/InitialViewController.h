@@ -11,8 +11,10 @@
 #import "SVProgressHUD.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <ECSlidingViewController/ECSlidingViewController.h>
+#import "DetailViewController.h"
+#import "MenuRightViewController.h"
 
-@interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate> {
 
     NSArray *dataChunk;
 

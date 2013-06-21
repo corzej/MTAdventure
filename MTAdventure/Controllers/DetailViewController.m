@@ -27,7 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.detailText.text = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",[[self dataFromParse] objectForKey:@"title"],[[self dataFromParse] objectForKey:@"description"],[[self dataFromParse] objectForKey:@"address"], [[self dataFromParse] objectForKey:@"website"], [[self dataFromParse] objectForKey:@"Neighborhood"]];
+    PFFile *imageFile = [[self dataFromParse] objectForKey:@"Photo"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            UIImage *image2 = [UIImage imageWithData:data];
+            self.myImg.image = image2;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
