@@ -38,6 +38,7 @@
 		295E668B176909C500763E7F /* WebMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E668A176909C500763E7F /* WebMapViewController.m */; };
 		29B7214A176AC31C00BA9999 /* TopNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B72149176AC31C00BA9999 /* TopNavViewController.m */; };
 		29B7214D176AC34E00BA9999 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B7214C176AC34E00BA9999 /* MenuViewController.m */; };
+		29D707F7177D18AD000F51D8 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D707F6177D18AC000F51D8 /* MainCell.m */; };
 		815C99A15E3141279651BEE9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E701CA0D962F4FDEB89B484F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		29B72149176AC31C00BA9999 /* TopNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNavViewController.m; sourceTree = "<group>"; };
 		29B7214B176AC34E00BA9999 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		29B7214C176AC34E00BA9999 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		29D707F5177D18AC000F51D8 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		29D707F6177D18AC000F51D8 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		D0C1F03509C644819F547573 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E701CA0D962F4FDEB89B484F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,6 +204,8 @@
 			children = (
 				291684761768AD3000520CB7 /* InitialViewController.h */,
 				291684771768AD3000520CB7 /* InitialViewController.m */,
+				29D707F5177D18AC000F51D8 /* MainCell.h */,
+				29D707F6177D18AC000F51D8 /* MainCell.m */,
 				295E66831768FB5500763E7F /* DetailViewController.h */,
 				295E66841768FB5500763E7F /* DetailViewController.m */,
 				295E6689176909C500763E7F /* WebMapViewController.h */,
@@ -333,6 +338,7 @@
 				29B7214A176AC31C00BA9999 /* TopNavViewController.m in Sources */,
 				29B7214D176AC34E00BA9999 /* MenuViewController.m in Sources */,
 				290C9DCD176B7C6E000CD433 /* MenuRightViewController.m in Sources */,
+				29D707F7177D18AD000F51D8 /* MainCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import <ECSlidingViewController/ECSlidingViewController.h>
 #import "DetailViewController.h"
 #import "MenuRightViewController.h"
+#import "MainCell.h"
 
 @interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate> {
 

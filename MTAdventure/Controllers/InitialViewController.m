@@ -23,14 +23,17 @@
     self.displayingFront = YES;
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Toggle" style:UIBarButtonItemStylePlain target:self action:@selector(toggleView:)]];
 //fliter button for right reveal button
+     /*
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self
                action:@selector(rightMenu)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"F" forState:UIControlStateNormal];
-    button.frame = CGRectMake(0.0, 420.0, 40.0, 40.0);
+   
+    [button setTitle:@"Filter" forState:UIControlStateNormal];
+    NSLog(@"height : %f", self.myContainerView.superview.bounds.size.height);
+    button.frame = CGRectMake(0.0, self.myContainerView.superview.bounds.size.height-80.0 , 120.0, 40.0);
     [self.myContainerView addSubview:button];
-    
+    */
 // Create the GMSMapView with the camera position.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.774042
                                                             longitude:-73.971001                                                                 zoom:13];
@@ -116,13 +119,14 @@
 - (IBAction)menuBtn:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+/*
 - (void)rightMenu{
     //todo thispart
     MenuRightViewController *myNewVC = [[MenuRightViewController alloc] init];
     [self presentViewController:myNewVC animated:YES completion:NULL];
 
 }
-
+*/
 
 /*
 #pragma mark - PFLogInViewControllerDelegate
@@ -200,7 +204,8 @@
 */
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"toDetail" sender:[self.myTableView cellForRowAtIndexPath:indexPath]];
+    //if I do the next line i am calling the next page twice... need to know why
+//    [self performSegueWithIdentifier:@"toDetail" sender:[self.myTableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - UITableViewDatasourse
@@ -210,16 +215,21 @@
 
 //Warning that I always get confused with tableView variable. It is connected to delegate and datasource that is where you can tell my tableview is this tableView variable
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"mainCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    MainCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[MainCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
 //try to convert parse object to piece of row
     PFObject *tempObject = [dataChunk objectAtIndex:indexPath.row];
-    cell.textLabel.text = [tempObject objectForKey:@"title"];
+    cell.titleLabel.text = [tempObject objectForKey:@"title"];
+    cell.townTrainLabel.text = [NSString stringWithFormat: @"%@, Train: %@", [tempObject objectForKey:@"Neighborhood"],[tempObject objectForKey:@"train"]];
+    cell.kindLabel.text = [tempObject objectForKey:@"kind"];
+    PFFile *imageFile = [tempObject objectForKey:@"Photo"];
+    cell.thumbImg.image =[UIImage imageWithData:[imageFile getData]];
+
     return cell;
 
 }

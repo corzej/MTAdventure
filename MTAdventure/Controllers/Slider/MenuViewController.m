@@ -51,7 +51,11 @@
     }
     
     cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:(115.0f/255.0f) green:(115.0f/255.0f) blue:(115.0f/255.0f) alpha:1.0f];
+    cell.textLabel.backgroundColor = [UIColor colorWithRed:(115.0f/255.0f) green:(115.0f/255.0f) blue:(115.0f/255.0f) alpha:1.0f];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    tableView.backgroundColor = [UIColor colorWithRed:(115.0f/255.0f) green:(115.0f/255.0f) blue:(115.0f/255.0f) alpha:1.0f];
+    tableView.separatorColor = [UIColor colorWithRed:(143.0f/255.0f) green:(143.0f/255.0f) blue:(143.0f/255.0f) alpha:1.0f];
     return cell;
 }
 

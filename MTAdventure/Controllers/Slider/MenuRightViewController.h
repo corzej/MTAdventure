@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECSlidingViewController.h"
 
 @interface MenuRightViewController : UIViewController
 
+- (IBAction)dismissBtn:(id)sender;
 @end

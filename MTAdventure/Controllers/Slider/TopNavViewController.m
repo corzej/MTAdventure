@@ -7,6 +7,7 @@
 //
 
 #import "TopNavViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TopNavViewController ()
 
@@ -31,6 +32,11 @@
     }
 */  
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+
+}
+-(void) viewDidLoad{
+
 }
 
 @end

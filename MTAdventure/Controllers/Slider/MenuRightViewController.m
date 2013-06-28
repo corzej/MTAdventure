@@ -10,12 +10,10 @@
 
 @interface MenuRightViewController ()
 
-@property (nonatomic, assign) CGFloat peekLeftAmount;
 
 @end
 
 @implementation MenuRightViewController
-@synthesize peekLeftAmount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,11 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //ECslider
-    self.peekLeftAmount = 40.0f;
-    [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
-    self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
+
 }
 
 
+- (IBAction)dismissBtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

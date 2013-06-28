@@ -23,6 +23,9 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 //google maps
     [GMSServices provideAPIKey:@"AIzaSyApNVepHW5klaF66HDtoYdtX367ycTFwT0"];
+//test flight
+    [TestFlight takeOff:@"22959902-2efb-435d-afa4-9f4dbd914c6f"];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:(249.0f/255.0f) green:(139.0f/255.0f) blue:(0.0f/255.0f) alpha:1.0f]];
     return YES;
 }
 
