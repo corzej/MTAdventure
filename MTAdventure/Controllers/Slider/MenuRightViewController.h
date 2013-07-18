@@ -11,4 +11,9 @@
 @interface MenuRightViewController : UIViewController
 
 - (IBAction)dismissBtn:(id)sender;
+
+- (IBAction)oneD:(id)sender;
+- (IBAction)twoD:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *oneDBtn;
+@property (weak, nonatomic) IBOutlet UIButton *twoDBtn;
 @end

@@ -312,15 +312,100 @@
                                     <action selector="dismissBtn:" destination="BV4-Kj-rE8" eventType="touchUpInside" id="Jw9-z2-TQo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nk9-e9-mRd">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFp-Qk-Naj">
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="I5t-Ty-Qpj"/>
+                                    <constraint firstAttribute="height" constant="45" id="l7p-SO-BNq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="$">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="oneD:" destination="BV4-Kj-rE8" eventType="touchUpInside" id="xW3-hS-zDu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSt-OJ-rd2">
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="FW5-uH-wGH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="$$">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twoD:" destination="BV4-Kj-rE8" eventType="touchUpInside" id="g3e-rR-tgL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b11-wJ-orl">
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="unX-aT-2tp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="$$$$">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEN-OY-NGD">
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="iUd-ea-2wM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="$$$">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="MSt-OJ-rd2" firstAttribute="leading" secondItem="CFp-Qk-Naj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="0ea-mL-Khx"/>
+                            <constraint firstItem="lEN-OY-NGD" firstAttribute="top" secondItem="b11-wJ-orl" secondAttribute="top" type="default" id="0tb-BQ-7yN"/>
+                            <constraint firstItem="MSt-OJ-rd2" firstAttribute="top" secondItem="lEN-OY-NGD" secondAttribute="top" type="default" id="1wH-J9-nNB"/>
                             <constraint firstItem="0Ah-ow-VyV" firstAttribute="leading" secondItem="ArY-bI-khe" secondAttribute="leading" type="default" id="4Dq-FD-FAu"/>
                             <constraint firstItem="0Ah-ow-VyV" firstAttribute="trailing" secondItem="ArY-bI-khe" secondAttribute="trailing" type="default" id="4Zm-1M-QjE"/>
+                            <constraint firstItem="MSt-OJ-rd2" firstAttribute="bottom" secondItem="lEN-OY-NGD" secondAttribute="bottom" type="default" id="6mb-nd-JhV"/>
+                            <constraint firstItem="CFp-Qk-Naj" firstAttribute="top" secondItem="Nk9-e9-mRd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6wM-UJ-46y"/>
+                            <constraint firstItem="CFp-Qk-Naj" firstAttribute="leading" secondItem="ArY-bI-khe" secondAttribute="leading" constant="17" id="7Nk-aO-Y7Z"/>
+                            <constraint firstItem="lEN-OY-NGD" firstAttribute="leading" secondItem="MSt-OJ-rd2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="A8M-fL-Y1s"/>
+                            <constraint firstItem="CFp-Qk-Naj" firstAttribute="top" secondItem="MSt-OJ-rd2" secondAttribute="top" type="default" id="Fv0-8S-5KC"/>
+                            <constraint firstItem="MSt-OJ-rd2" firstAttribute="bottom" secondItem="CFp-Qk-Naj" secondAttribute="bottom" type="default" id="Iyg-n9-w7l"/>
+                            <constraint firstItem="b11-wJ-orl" firstAttribute="bottom" secondItem="lEN-OY-NGD" secondAttribute="bottom" type="default" id="Mh8-mj-OND"/>
+                            <constraint firstItem="Nk9-e9-mRd" firstAttribute="leading" secondItem="ArY-bI-khe" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ULy-DV-BeX"/>
+                            <constraint firstItem="b11-wJ-orl" firstAttribute="leading" secondItem="lEN-OY-NGD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YNd-mH-Feb"/>
+                            <constraint firstItem="Nk9-e9-mRd" firstAttribute="top" secondItem="ArY-bI-khe" secondAttribute="top" constant="20" symbolic="YES" type="default" id="a2J-U8-uDN"/>
                             <constraint firstItem="0Ah-ow-VyV" firstAttribute="bottom" secondItem="ArY-bI-khe" secondAttribute="bottom" type="user" id="oIA-zJ-eiO"/>
                             <constraint firstItem="0Ah-ow-VyV" firstAttribute="bottom" secondItem="ArY-bI-khe" secondAttribute="bottom" type="user" id="y9y-Yk-59e"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="oneDBtn" destination="CFp-Qk-Naj" id="jdt-dS-8g9"/>
+                        <outlet property="twoDBtn" destination="MSt-OJ-rd2" id="YzF-Ub-8Gd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGa-QN-aDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -377,59 +462,16 @@
     <classes>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="myImg" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="InitialViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="outlet" name="myContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myMapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MainCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="kindLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="townTrainLabel" candidateClass="UILabel"/>
-            </relationships>
         </class>
         <class className="MenuRightViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuRightViewController.h"/>
             <relationships>
                 <relationship kind="action" name="dismissBtn:"/>
+                <relationship kind="action" name="oneD:"/>
+                <relationship kind="action" name="twoD:"/>
+                <relationship kind="outlet" name="oneDBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twoDBtn" candidateClass="UIButton"/>
             </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TopNavViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopNavViewController.h"/>
-        </class>
-        <class className="WebMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="initialSliderViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/initialSliderViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

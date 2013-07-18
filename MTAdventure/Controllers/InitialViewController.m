@@ -5,7 +5,7 @@
 //  Created by eungJin on 6/12/13.
 //  Copyright (c) 2013 rollintiger. All rights reserved.
 //
-
+///////////#########filter almost done but only single filter is working 
 #import "InitialViewController.h"
 
 @interface InitialViewController () {
@@ -69,16 +69,57 @@
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
 */
+    
+    //after modal view(filter) is disappeared
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterData:) name:@"filterData" object:nil];
 }
+
+/*notifiction*/
+-(void)filterData:(NSNotification *)notis{
+    NSDictionary *dict = notis.userInfo;
+    filteredInfo = [dict objectForKey:@"price"] ;
+    
+    NSLog(@"pushing to single");
+    for (NSArray *filteredArray in filteredInfo) {
+        if([filteredArray isEqual:[NSNumber numberWithBool:YES]]){
+            queryToSend =@"price = 1";
+        }
+    }
+    [self getFilteredFromParse];
+
+}
+/*notifiction*/
+
 #pragma mark - parse methods
 
 - (void) getFromParse {
     //data from parse
     [SVProgressHUD showWithStatus:@"Downloading" maskType:SVProgressHUDMaskTypeBlack];
+
     PFQuery *query = [PFQuery queryWithClassName:@"Adventure"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
           //  NSLog(@"loging: %@",objects);
+            dataChunk = [[NSArray alloc] initWithArray:objects];
+            [SVProgressHUD dismiss];
+            [self.myTableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+- (void) getFilteredFromParse {
+    //data from parse
+    NSLog(@"did it go well?");
+    [SVProgressHUD showWithStatus:@"Downloading" maskType:SVProgressHUDMaskTypeBlack];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              queryToSend];
+    PFQuery *query = [PFQuery queryWithClassName:@"Adventure" predicate:predicate];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            //  NSLog(@"loging: %@",objects);
             dataChunk = [[NSArray alloc] initWithArray:objects];
             [SVProgressHUD dismiss];
             [self.myTableView reloadData];

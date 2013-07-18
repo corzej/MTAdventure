@@ -18,7 +18,8 @@
 @interface InitialViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, GMSMapViewDelegate> {
 
     NSArray *dataChunk;
-
+    NSArray *filteredInfo;
+    NSString *queryToSend;
 }
 
 @property (strong, nonatomic) IBOutlet GMSMapView *myMapView;
